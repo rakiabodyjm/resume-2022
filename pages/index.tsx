@@ -45,7 +45,7 @@ const Home: NextPage = () => {
               sx={{
                 // background: "red",
                 // background: (theme) => theme.palette.divider,
-                background: "currentColor",
+                // background: "currentColor",
                 borderRadius: (theme) => theme.shape.borderRadius,
                 height: 3,
                 flexGrow: "1",
