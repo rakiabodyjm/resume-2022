@@ -9,7 +9,10 @@ const Home: NextPage = () => {
   return (
     <Paper
       sx={{
-        p: 6,
+        p: {
+          xs: 4,
+          sm: 6,
+        },
       }}
       variant="outlined"
     >
@@ -31,12 +34,14 @@ const Home: NextPage = () => {
           <Box
             display="flex"
             alignItems="center"
-            sx={{
-              color: (theme) =>
-                theme.palette.mode === "dark"
-                  ? theme.palette.primary.main
-                  : theme.palette.primary.main,
-            }}
+            sx={
+              {
+                // color: (theme) =>
+                //   theme.palette.mode === "dark"
+                //     ? theme.palette.primary.main
+                //     : theme.palette.primary.main,
+              }
+            }
           >
             <Typography variant="h5" letterSpacing={0.7} fontWeight={900}>
               Employment Timeline
