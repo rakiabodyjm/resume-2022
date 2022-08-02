@@ -91,7 +91,6 @@ const Header = () => {
           display: "flex",
           justifyContent: "flex-end",
           margin: "auto",
-          maxWidth: (theme) => theme.breakpoints.values.md,
         }}
       >
         <DarkModeSwitchWrapper />
