@@ -1,75 +1,62 @@
 import type { NextPage } from "next";
-import Container from "@mui/material/Container";
-import { Divider, Grid, Paper, Typography, Box } from "@mui/material";
-import Header from "../src/components/Header";
-import Technologies from "../src/components/Technologies";
-import Timeline from "../src/components/Timeline";
+import { Divider, Grid, Paper, Typography, Box, Slide } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
+import { Fragment } from "react";
+import JaneoDevLogo from "src/components/molecules/JaneoDevLogo";
 
 const Home: NextPage = () => {
   return (
-    <Paper
-      sx={{
-        p: {
-          xs: 4,
-          sm: 6,
-        },
-      }}
-      variant="outlined"
-    >
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Header />
-        </Grid>
-        <Grid item xs={12}>
-          <Technologies />
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          sx={{
-            my: 2,
+    <Fragment>
+      <Box
+        sx={{
+          margin: "auto",
+          maxWidth: "max-content",
+          textAlign: "center",
+        }}
+      >
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 2,
           }}
         >
-          <Box
-            display="flex"
-            alignItems="center"
-            sx={
-              {
-                // color: (theme) =>
-                //   theme.palette.mode === "dark"
-                //     ? theme.palette.primary.main
-                //     : theme.palette.primary.main,
-              }
-            }
+          <Typography
+            variant="h6"
+            sx={{
+              display: "inline",
+              color: (theme) => theme.palette.text.secondary,
+            }}
+            fontWeight={700}
           >
-            <Typography variant="h5" letterSpacing={0.7} fontWeight={900}>
-              Employment Timeline
-            </Typography>
-            <Box
-              sx={{
-                // background: "red",
-                // background: (theme) => theme.palette.divider,
-                // background: "currentColor",
-                borderRadius: (theme) => theme.shape.borderRadius,
-                height: 3,
-                flexGrow: "1",
-                position: "relative",
-                top: "50%",
-                ml: 2,
-                display: {
-                  xs: "none",
-                  sm: "block",
-                },
-              }}
-            />
-          </Box>
-        </Grid>
-        <Grid item xs={12}>
-          <Timeline />
-        </Grid>
-      </Grid>
-    </Paper>
+            Welcome to{" "}
+          </Typography>
+        </motion.div>
+
+        <AnimatePresence>
+          <motion.div
+            initial={{ y: -1000 }}
+            animate={{ y: 0 }}
+            exit={{
+              opacity: 0,
+            }}
+            transition={{
+              type: "spring" as const,
+              duration: 2,
+              delay: 1,
+            }}
+          >
+            <JaneoDevLogo />
+          </motion.div>
+        </AnimatePresence>
+      </Box>
+    </Fragment>
   );
 };
 
