@@ -7,15 +7,15 @@ import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 // import { CssVarsProvider } from "@mui/joy";
 import DarkModeSwitch from "src/components/common/DarkModeSwitch";
-import { Box, useMediaQuery } from "@mui/material";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Box } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 import { Provider, useDispatch, useSelector } from "react-redux";
-import store, { RootState } from "@data/redux/store";
-import colorScheme, {
+import store, { RootState } from "src/redux/store";
+import {
   colorSchemeSelector,
   DarkOrLight,
   setColorScheme,
-} from "@data/redux/colorScheme";
+} from "src/redux/colorScheme";
 import GlobalContainer from "src/components/common/GlobalContainer";
 
 // Client-side cache, shared for the whole session of the user in the browser.
