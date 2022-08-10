@@ -19,7 +19,10 @@
     "paths": {
       "@public/*": ["public/*"],
       "@data/*": ["src/data/*"]
-    }
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
   },
   "include": ["index.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", "src"],
   "exclude": ["node_modules"]
