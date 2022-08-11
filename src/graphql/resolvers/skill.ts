@@ -1,4 +1,4 @@
-import techStacks from "@data/tech-stacks";
+import techStacks, { techStacksCategorized } from "@data/tech-stacks";
 
 const [
   languages,
@@ -15,9 +15,10 @@ const [
   environments,
   webServer,
   otherLibs,
+  processes,
 ] = techStacks;
 
-type Skills = {
+export type Skills = {
   languages: typeof languages;
   orm: typeof orm;
   uiLibraries: typeof uiLibraries;
@@ -34,7 +35,20 @@ type Skills = {
   otherLibs: typeof otherLibs;
 };
 
-export function getSkills(parent, args, context, info) {
+export type RefinedSkills = {
+  Technologies: string[];
+  UI_Libraries: string[];
+  Frontend_Libraries: string[];
+  Backend_Libraries: string[];
+  Databases: string[];
+  Other_Software: string[];
+  Services: string[];
+  Process: string[];
+  Tools: string[];
+  Environments: string[];
+};
+
+export function getSkills() {
   const skills: Skills = {
     languages,
     orm,
@@ -52,10 +66,36 @@ export function getSkills(parent, args, context, info) {
     otherLibs,
   };
 
-  console.log("args.key", info);
-
-  if (args.key) {
-    return skills[args.key];
-  }
   return skills;
 }
+
+export function getRefinedSkills() {
+  return {
+    Technologies: languages,
+    UI_Libraries: uiLibraries,
+    Frontend_Libraries: [...dataLib],
+    Backend_Libraries: [...orm, ...microServices, ...saas],
+    Databases: [...dbms],
+    Other_Software: [...otherLibs, ...otherNode],
+    Services: [...saas],
+    Tools: [...testing, ...tools],
+    Process: [...processes],
+    Environments: [...webServer, ...environments],
+
+    // Other_
+  };
+}
+
+/**
+ * Technologies
+ * UI Libraries
+ * Frontend Libraries
+ * Backend Libraries
+ * Databases
+ * Other Libraries
+ * Other Software
+ * Services
+ * Process
+ * Tools,
+ * Environments
+ */
