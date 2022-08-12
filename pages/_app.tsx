@@ -17,10 +17,18 @@ import {
   setColorScheme,
 } from "src/redux/colorScheme";
 import GlobalContainer from "src/components/common/GlobalContainer";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
+/**
+ * Aopllo GraphQL client
+ */
+const apolloClient = new ApolloClient({
+  uri: "/api/graphql",
+  cache: new InMemoryCache(),
+});
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -59,23 +67,28 @@ export default function MyApp(props: MyAppProps) {
   return (
     <Provider store={store}>
       <CacheProvider value={emotionCache}>
-        <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
+        <ApolloProvider client={apolloClient}>
+          <Head>
+            <meta
+              name="viewport"
+              content="initial-scale=1, width=device-width"
+            />
+          </Head>
 
-        <ThemeProvider
-          theme={theme({
-            darkMode: darkMode === ("dark" as DarkOrLight),
-          })}
-        >
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <ThemeProvider
+            theme={theme({
+              darkMode: darkMode === ("dark" as DarkOrLight),
+            })}
+          >
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 
-          <CssBaseline />
-          <GlobalContainer>
-            <Header />
-            <Component {...pageProps} />
-          </GlobalContainer>
-        </ThemeProvider>
+            <CssBaseline />
+            <GlobalContainer>
+              <Header />
+              <Component {...pageProps} />
+            </GlobalContainer>
+          </ThemeProvider>
+        </ApolloProvider>
       </CacheProvider>
     </Provider>
   );
