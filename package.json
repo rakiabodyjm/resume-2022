@@ -10,6 +10,7 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/server": "latest",
@@ -17,6 +18,7 @@
     "@mui/icons-material": "latest",
     "@mui/joy": "^5.0.0-alpha.38",
     "@mui/material": "latest",
+    "@react-pdf/renderer": "^2.3.0",
     "@reduxjs/toolkit": "^1.8.3",
     "apollo-server-micro": "^3.10.1",
     "axios": "^0.27.2",
