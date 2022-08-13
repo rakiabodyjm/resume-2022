@@ -22,8 +22,16 @@
     },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false
   },
-  "include": ["index.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", "src"],
+  "include": [
+    "index.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src",
+    "**/*.gql"
+  ],
   "exclude": ["node_modules"]
 }
