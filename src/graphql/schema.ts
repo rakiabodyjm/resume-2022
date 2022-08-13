@@ -1,4 +1,5 @@
-import { gql } from "apollo-server-micro";
+import { Degrees } from './../data/degrees'
+import { gql } from 'apollo-server-micro'
 
 export const typeDefs = gql`
   scalar ProfileSummary
@@ -6,6 +7,22 @@ export const typeDefs = gql`
     timelines: [TimelineEntry]
     skills: Techstacks
     profile: Profile
+    skillsv2: RefinedTechstacks
+    personal_projects: [PersonalProjects]
+    certificates(type: CertType): [Certificates]
+    degrees: [Degree]
+  }
+
+  enum CertType {
+    CERTIFICATE
+    TICKET
+  }
+
+  type Certificates {
+    name: String
+    date: String
+    description: String
+    image: String
   }
 
   type Profile {
@@ -25,8 +42,9 @@ export const typeDefs = gql`
   type ProjectEntry {
     name: String
     description: String
-    responsibilities: [String]
+    responsibilities: ProfileSummary
     technologies: [String]
+    summarizedResponsibilities: [String]
   }
 
   type TimelineEntry {
@@ -53,9 +71,32 @@ export const typeDefs = gql`
     otherLibs: [String]
   }
 
+  type RefinedTechstacks {
+    Technologies: [String]
+    UI_Libraries: [String]
+    Frontend_Libraries: [String]
+    Backend_Libraries: [String]
+    Databases: [String]
+    Other_Software: [String]
+    Services: [String]
+    Process: [String]
+    Tools: [String]
+    Environments: [String]
+  }
+
   type GenericInformation {
     title: String
     description: String
     icon: String
   }
-`;
+  type PersonalProjects {
+    name: String
+    description: String
+    technologies: [String]
+  }
+
+  type Degree {
+    name: String
+    date: String
+  }
+`
