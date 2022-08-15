@@ -9,6 +9,7 @@ export default function GlobalContainer({
   return (
     <Container
       disableGutters
+      maxWidth={"md"}
       sx={{
         p: {
           xs: 1,
