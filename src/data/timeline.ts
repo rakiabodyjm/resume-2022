@@ -11,7 +11,6 @@ type TimelineEntry = {
   date?: string;
   projects: ProjectEntry[];
 };
-
 const timelineEntries: TimelineEntry[] = [
   {
     company: "Analytick Box Inc.",
@@ -51,26 +50,15 @@ const timelineEntries: TimelineEntry[] = [
           "Reviewed project specifications and designed performant technology solutions that meets client expectation",
           "Recorded over 400 contractual employee records for social security, health insurance and home development mutual funds for centralized bookkeeping and faster payroll management.",
         ],
-        technologies: ["Laravel", "Vue", "jQuery", "Bootstrap"],
+        technologies: [
+          "Laravel",
+          "Vue",
+          "jQuery",
+          "Bootstrap",
+          "MySQL",
+          "Eloquent",
+        ],
       },
-      //   {
-      //     name: "Project COMAS V2",
-      //     description:
-      //       "Upgrade of company's initial Payroll, Daily Time Record and Inventory Management",
-      //     responsibilities: [
-      //       "Rewrote Web Application in Create React App and Node.js Express for better performance and user experience",
-      //       [
-      //         "Added company's requested features: ",
-      //         [
-      //           "Realtime DTR Monitoring",
-      //           "Employee Search",
-      //           "Streamlined DTR Attendance checking",
-      //         ],
-      //       ],
-      //       "Achieved mobile friendly and mobile data accessible deployment ",
-      //     ],
-      //     technologies: ["React", "Node.js", "Express", "Sequelize", "MySQL"],
-      //   },
     ],
   },
   {
@@ -125,7 +113,7 @@ const timelineEntries: TimelineEntry[] = [
           "Axios",
           "Material-UI",
           "Node.js",
-          "Express.js",
+          "Express",
           "MongoDB",
           "Mongoose",
           "Stripe",
@@ -158,6 +146,7 @@ const timelineEntries: TimelineEntry[] = [
           "Git",
           "Vercel",
           "Vercel Edge Functions",
+          "MongoDB",
         ],
       },
       {
@@ -263,7 +252,7 @@ const timelineEntries: TimelineEntry[] = [
           "E-Wallet implementation for accepting payments throughout the company’s Ecommerce and Services sites. ",
         responsibilities: [
           "Collaborated with software development teams and management for requirements engineering and architecture.",
-          "descriptionDesigned and communicated methodologies for implementing modules and technical specifications for the project.",
+          "Designed and communicated methodologies for implementing modules and technical specifications for the project.",
           "Oversaw software engineering and project management ensuring successful delivery of modules and features on time.",
           "Designed API Specifications for microservice implementation for integration with existing company services.",
           "Responsible for Integration, Development Operations and System Administration.",
@@ -310,7 +299,7 @@ const timelineEntries: TimelineEntry[] = [
           "TypeScript",
           "React",
           "Next.js",
-          "Nest.js",
+          "NestJS",
           "Node.js",
           "Nginx",
           "PM2",
@@ -346,7 +335,7 @@ const timelineEntries: TimelineEntry[] = [
           "TypeScript",
           "React",
           "Next.js",
-          "Nest.js",
+          "NestJS",
           "Node.js",
           "Nginx",
           "PM2",
@@ -374,7 +363,7 @@ const timelineEntries: TimelineEntry[] = [
           "TypeScript",
           "React",
           "Next.js",
-          "Nest.js",
+          "NestJS",
           "Node.js",
           "Nginx",
           "PM2",
@@ -399,7 +388,7 @@ const timelineEntries: TimelineEntry[] = [
           "TypeScript",
           "React",
           "Next.js",
-          "Nest.js",
+          "NestJS",
           "Node.js",
           "Nginx",
           "PM2",
@@ -427,7 +416,7 @@ const timelineEntries: TimelineEntry[] = [
           "TypeScript",
           "React",
           "Next.js",
-          "Nest.js",
+          "NestJS",
           "Node.js",
           "Nginx",
           "PM2",
@@ -438,6 +427,12 @@ const timelineEntries: TimelineEntry[] = [
       },
     ],
   },
+  // {
+  // position: "Web Developer",
+  // company: "Independent Contractor",
+  // date: "2018 - Present",
+  // projects: [{}],
+  // },
 ].reverse() as TimelineEntry[];
 
 export default timelineEntries;
