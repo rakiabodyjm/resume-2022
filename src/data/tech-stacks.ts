@@ -7,7 +7,7 @@ const technologies = [
   "Vue",
   "Express",
   "Next.js",
-  "Nest.js",
+  "NestJS",
   "Webpack",
   "Gatsby",
   "jQuery",
@@ -72,7 +72,9 @@ const authStrategies = ["JWT", "Passport", "OAuth", "OAuth2"];
 
 const testingLibraries = ["Jest", "Supertest"];
 
-const otherNodeLibraries = ["Multer", "NodeMailer", "HLS", "Streams"];
+const otherNodeLibraries = ["Multer", "NodeMailer", "HLS.js", "Streams"];
+
+const otherLibraries = ["FFMPEG", "MakeMKV", "VLC Open Library"];
 
 const tools = ["Git", "Postman", "Visual Studio Code", "GitHub Actions"];
 
@@ -104,6 +106,7 @@ const techStacks = [
   tools,
   environments,
   webServers,
+  otherLibraries,
 ];
 
 export default techStacks;
