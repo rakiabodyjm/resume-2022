@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
-import Container from "@mui/material/Container";
-import { Divider, Grid, Paper, Typography, Box } from "@mui/material";
+import { Grid, Paper, Typography, Box } from "@mui/material";
 import Header from "../src/components/Header";
 import Technologies from "../src/components/Technologies";
 import Timeline from "../src/components/Timeline";
@@ -11,8 +10,9 @@ const Resume: NextPage = () => {
       sx={{
         p: {
           xs: 4,
-          sm: 6,
+          sm: 4,
         },
+        border: "none",
       }}
       variant="outlined"
     >
@@ -43,7 +43,15 @@ const Resume: NextPage = () => {
               }
             }
           >
-            <Typography variant="h5" letterSpacing={0.7} fontWeight={900}>
+            <Typography
+              variant="h5"
+              sx={{
+                transform: "scale(1.2)",
+                transformOrigin: "0% 50%",
+              }}
+              // letterSpacing={0.7}
+              fontWeight={900}
+            >
               Employment Timeline
             </Typography>
             <Box
