@@ -1,5 +1,5 @@
 import { ApolloServer } from "apollo-server-micro";
-import { NextApiRequest, NextApiResponse, NextConfig } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
 import resolvers from "src/graphql/resolvers";
 import { typeDefs } from "src/graphql/schema";
 // import Cors from "micro-cors";
@@ -28,12 +28,10 @@ export default async function handler(
   try {
     await startServer;
     cors(req, res, (result: any) => {
-      console.log("result", result);
       if (result instanceof Error) {
         throw result;
       }
     });
-
     apolloServer.createHandler({
       path: "/api/graphql",
     })(req, res);
@@ -45,5 +43,6 @@ export default async function handler(
 export const config = {
   api: {
     bodyParser: false,
+    externalResolver: true,
   },
 };
