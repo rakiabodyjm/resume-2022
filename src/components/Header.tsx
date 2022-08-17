@@ -2,7 +2,8 @@ import {
   LocationOnOutlined,
   AlternateEmail,
   SmartphoneOutlined,
-  SvgIconComponent,
+  GitHub,
+  LinkedIn,
 } from "@mui/icons-material";
 import {
   Box,
@@ -15,12 +16,21 @@ import {
 } from "@mui/material";
 // import React from "react";
 import { Fragment } from "react";
-import GitHub from "@public/icons/github.svg";
-import LinkedIn from "@public/icons/linkedin.svg";
+// import GitHub from "@public/icons/github.svg";
+// import LinkedIn from "@public/icons/linkedin.svg";
 import { TypographyProps } from "@mui/system";
 import { styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
+
+// const DynamicIcon = ({ param }: { param: string }) =>
+//   dynamic(() => {
+//     if (["github", "linkedin"].includes(param)) {
+//       return import("@public/icons/" + param);
+//     } else {
+//       return import("@mui/icons-material/" + param);
+//     }
+//   });
 
 type GenericInformation = {
   title: string;
@@ -28,6 +38,7 @@ type GenericInformation = {
   // icon?: SvgIconComponent | JSX.Element;
   // icon?: React.ElementType;
   icon: React.ElementType;
+  iconString: string;
 };
 type HeaderDetails = {
   name: string;
@@ -54,16 +65,19 @@ const headerDetails: HeaderDetails = {
       title: "Email",
       description: "rakiabodyjm@gmail.com",
       icon: AlternateEmail,
+      iconString: "AlternateEmail",
     },
     {
       title: "Phone Number",
       description: "+63 949 846 0475",
       icon: SmartphoneOutlined,
+      iconString: "SmartphoneOutlined",
     },
     {
       title: "Location",
       description: "Quezon City, PH",
       icon: LocationOnOutlined,
+      iconString: "LocationOnOutlined",
     },
   ],
   profiles: [
@@ -71,6 +85,7 @@ const headerDetails: HeaderDetails = {
       title: "GitHub",
       description: "github.com/rakiabodyjm",
       icon: GitHub,
+      iconString: "github",
       // icon: () => (
       //   <svg
       //     height="32"
@@ -92,6 +107,7 @@ const headerDetails: HeaderDetails = {
       title: "LinkedIn",
       description: "linkedin.com/in/janeomigueltiongson",
       icon: LinkedIn,
+      iconString: "linkedin",
       // icon: () => (
       //   <svg
       //     xmlns="http://www.w3.org/2000/svg"
