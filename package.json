@@ -21,6 +21,7 @@
     "@react-pdf/renderer": "^2.3.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@types/multer": "^1.4.7",
+    "apollo-server-express": "^3.10.1",
     "apollo-server-micro": "^3.10.1",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
@@ -31,6 +32,7 @@
     "multer": "^1.4.5-lts.1",
     "next": "latest",
     "next-connect": "^0.13.0",
+    "puppeteer": "^16.2.0",
     "react": "latest",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -48,6 +50,6 @@
     "@types/uuid": "^8.3.4",
     "eslint": "latest",
     "eslint-config-next": "latest",
-    "typescript": "latest"
+    "typescript": "^4.7.4"
   }
 }
