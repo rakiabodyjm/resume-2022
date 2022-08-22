@@ -27,14 +27,19 @@ export default async function handler(
 ) {
   try {
     await startServer;
+    const handler = apolloServer.createHandler({
+      path: "/api/graphql",
+    });
     cors(req, res, (result: any) => {
       if (result instanceof Error) {
-        throw result;
+        // throw result;
+        res.status(500).send(result);
+      }
+      if (req.method === "OPTIONS") {
+        res.status(200).send("ok");
       }
     });
-    apolloServer.createHandler({
-      path: "/api/graphql",
-    })(req, res);
+    handler(req, res);
   } catch (err) {
     res.status(500).send(err);
   }
