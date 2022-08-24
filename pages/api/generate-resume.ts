@@ -20,8 +20,8 @@ export default async function handler(
   })
 
   await page.setViewport({
-    width: 1227,
-    height: 841,
+    width: Math.round(1227 / 1.5),
+    height: Math.round(841 / 1.5),
   })
 
   //   await autoScroll(page)
@@ -43,13 +43,27 @@ export default async function handler(
 
   const path = resolve(process.cwd(), 'public', 'TIONGSON_JANEOMIGUEL.pdf')
 
-  const pdf = await page.pdf({
-    format: 'a4',
-    printBackground: true,
-    preferCSSPageSize: true,
-    // path: resolve(process.cwd(), 'public', 'TIONGSON_JANEOMIGUEL.pdf'),
-    path,
-  })
+  let errorInFirstWriting: boolean = false
+
+  const pdf = await page
+    .pdf({
+      format: 'a4',
+      printBackground: true,
+      preferCSSPageSize: true,
+      // path: resolve(process.cwd(), 'public', 'TIONGSON_JANEOMIGUEL.pdf'),
+      path,
+    })
+    .then(() => {
+      throw 'Generated Error'
+    })
+    .catch((err) => {
+      errorInFirstWriting = true
+      return page.pdf({
+        format: 'a4',
+        printBackground: true,
+        preferCSSPageSize: true,
+      })
+    })
 
   //   const pdf = await page.screenshot({
   //     fullPage: true,
@@ -61,11 +75,13 @@ export default async function handler(
 
   // res.pipe()
   res.setHeader('Content-Type', 'application/pdf')
+
   //   res.setHeader(
   //     'Content-Disposition',
   //     'attachment;filename=JaneoMiguelTiongsonCV.pdf'
   //   )
-  res.send(readFileSync(path))
+
+  res.send(!errorInFirstWriting ? readFileSync(path) : pdf)
   //   res.pipe(pdf)
 }
 
