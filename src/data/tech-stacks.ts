@@ -19,6 +19,7 @@ const technologies = [
   "Entity Framework",
   "C++",
   "Java",
+  "VB.net",
 ];
 
 const ormLibraries = [
@@ -31,7 +32,7 @@ const ormLibraries = [
 
 // const frontendLibraries = ["Axios", "Apollo GraphQL", "Socket.io"];
 const uiLibraries = [
-  "Material UI",
+  "Material-UI",
   "AntDesign",
   "Sass",
   "Styled Components",
@@ -41,9 +42,22 @@ const uiLibraries = [
   "Bootstrap",
 ];
 
-const dataLib = ["Axios", "GraphQL", "Redux", "SWR", "React Query"];
+const dataLib = [
+  "Axios",
+  "Redux",
+  "SWR",
+  "React Query",
+  "Formik",
+  "React Hook Form",
+];
 
-const microServices = ["Redis Pub/Sub", "RxJs", "Socket.io", "REST API"];
+const microServices = [
+  "Redis Pub/Sub",
+  "RxJs",
+  "Socket.io",
+  "GraphQL",
+  "REST API",
+];
 
 const saas = [
   "Google Maps",
@@ -53,6 +67,7 @@ const saas = [
   "DragonPay",
   "TMDB",
   "IMDB",
+  "RapidAPI",
   "Twilio",
   "Google Search",
   "Google Analytics",
@@ -65,18 +80,30 @@ const dbms = [
   "PostgreSQL",
   "Redis",
   "Firestore",
-  "Firebase NoSQL",
+  "Firebase Realtime Database",
 ];
 
 const authStrategies = ["JWT", "Passport", "OAuth", "OAuth2"];
 
 const testingLibraries = ["Jest", "Supertest"];
 
-const otherNodeLibraries = ["Multer", "NodeMailer", "HLS.js", "Streams"];
+const otherNodeLibraries = ["Multer", "NodeMailer", "HLS.js", "Puppeteer"];
 
 const otherLibraries = ["FFMPEG", "MakeMKV", "VLC Open Library"];
 
-const tools = ["Git", "Postman", "Visual Studio Code", "GitHub Actions"];
+const tools = [
+  "ESLint",
+  "Prettier",
+  "Git",
+  "Postman",
+  "Visual Studio Code",
+  "GitHub Actions",
+  "GitHub Webhooks",
+  "Trello",
+  "Jira",
+  "Lighthouse",
+  "PWA",
+];
 
 const environments = [
   "Docker",
@@ -88,9 +115,19 @@ const environments = [
   "Firebase",
   "Heroku",
   "Vercel",
+  // "AWS",
 ];
 
 const webServers = ["Nginx", "IIS", "Apache"];
+
+const processes = [
+  // "Waterfall",
+  "Agile",
+  "Scrum",
+  "Kanban",
+  "Test-Driven Development",
+  "Feature-Driven Development",
+];
 
 const techStacks = [
   technologies,
@@ -107,6 +144,25 @@ const techStacks = [
   environments,
   webServers,
   otherLibraries,
+  processes,
 ];
+
+export const techStacksCategorized = {
+  technologies,
+  ormLibraries,
+  uiLibraries,
+  dataLib,
+  microServices,
+  saas,
+  dbms,
+  authStrategies,
+  testingLibraries,
+  otherNodeLibraries,
+  tools,
+  environments,
+  webServers,
+  otherLibraries,
+  processes,
+};
 
 export default techStacks;
