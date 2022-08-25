@@ -90,7 +90,7 @@ const timelineEntries: TimelineEntry[] = [
         ],
         summarizedResponsibilities: [
           "Spearheaded the update of of coding patterns, ECMAScript syntaxes and React.js' API for optimizations, better code readability and to accommodate compatibility with new third party external libraries ",
-          'Responsibile for development and optimizations of UI Components ensuring interoperability, performance and ease of use for handling more than 10 form component instances',
+          'Responsible for development and optimizations of UI Components ensuring interoperability, performance and ease of use for handling more than 10 form component instances',
         ],
         technologies: [
           'JavaScript',
