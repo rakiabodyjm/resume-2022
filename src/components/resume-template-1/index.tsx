@@ -348,7 +348,7 @@ const styling: { [key: string]: SxProps<Theme> } = {
     },
     '.date': {
       fontSize: (theme) => theme.typography.body2.fontSize,
-      color: 'GrayText',
+      color: (theme) => theme.palette.grey['A400'],
       mt: -1,
     },
 
@@ -377,7 +377,7 @@ const styling: { [key: string]: SxProps<Theme> } = {
       },
       '.date': {
         fontSize: (theme) => theme.typography.caption.fontSize,
-        color: 'GrayText',
+        color: (theme) => theme.palette.grey['A400'],
         mb: -1,
       },
       '.description': {
@@ -407,7 +407,7 @@ const styling: { [key: string]: SxProps<Theme> } = {
     },
     '.date': {
       fontSize: (theme) => theme.typography.caption.fontSize,
-      color: 'GrayText',
+      color: (theme) => theme.palette.grey['A400'],
     },
     '.extra': {
       fontSize: (theme) => theme.typography.caption.fontSize,
@@ -418,7 +418,7 @@ const styling: { [key: string]: SxProps<Theme> } = {
     },
     '.location': {
       fontSize: (theme) => theme.typography.caption.fontSize,
-      color: 'GrayText',
+      color: (theme) => theme.palette.grey['A400'],
     },
   },
   __global: {
@@ -429,12 +429,12 @@ const styling: { [key: string]: SxProps<Theme> } = {
       background: (theme) => theme.palette.secondary.gradient,
       backgroundClip: 'text',
     },
-    '.skills-container .skill-title:after': {
-      // color: 'red',
-      color: 'transparent',
-      background: (theme) => theme.palette.secondary.gradient,
-      backgroundClip: 'text',
-    },
+    // '.skills-container .skill-title:after': {
+    //   // color: 'red',
+    //   color: 'transparent',
+    //   background: (theme) => theme.palette.secondary.gradient,
+    //   backgroundClip: 'text',
+    // },
 
     '.personal-project-container .title': {
       // color: 'red',
@@ -578,17 +578,18 @@ export default function ResumeTemplate1() {
         />
       </Grid>
 
-      <Grid className="stacked" item xs={3}>
+      <Grid className="stacked" item xs={12} md={3}>
         <Skills skills={data.skillsv2} sx={styling.skills} />
 
         <PersonalTimeline
           personalProjects={data.personal_projects}
           sx={styling.personal_timelines}
         />
+
         <Tickets sx={styling.tickets} tickets={data.tickets} />
         <Degrees sx={styling.degrees} degrees={data.degrees} />
       </Grid>
-      <Grid className="stacked" item xs={9}>
+      <Grid className="stacked" item xs={12} md={9}>
         <Timeline sx={styling.timelines} timeLines={data.timelines} />
         <Certificates
           sx={styling.certificates}
