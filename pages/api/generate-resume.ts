@@ -14,17 +14,23 @@ export default async function handler(
 
   const page = await browser.newPage()
 
-  await page.goto('http://localhost:3000/resume2', {
-    waitUntil: 'networkidle0',
-    // timeout: 30000,
-  })
-
   await page.setViewport({
-    width: Math.round(1227 / 1.5),
-    height: Math.round(841 / 1.5),
+    width: 1440,
+    height: 796,
   })
 
-  //   await autoScroll(page)
+  await page.goto(
+    (process.env.NODE_ENV === 'development' ? 'http://' : 'https://') +
+      req.headers.host +
+      '/resume2',
+    {
+      waitUntil: 'networkidle0',
+    }
+  )
+
+  /**
+   * Evaluate page to scroll to below to avoid non loading images
+   */
   await page.evaluate(
     () =>
       new Promise((resolve) => {
@@ -50,56 +56,39 @@ export default async function handler(
       format: 'a4',
       printBackground: true,
       preferCSSPageSize: true,
-      // path: resolve(process.cwd(), 'public', 'TIONGSON_JANEOMIGUEL.pdf'),
       path,
     })
-    .then(() => {
-      throw 'Generated Error'
-    })
     .catch((err) => {
-      errorInFirstWriting = true
-      return page.pdf({
-        format: 'a4',
-        printBackground: true,
-        preferCSSPageSize: true,
-      })
+      console.log('error await page.pdf function')
+      console.log(err)
+      throw err
     })
 
-  //   const pdf = await page.screenshot({
-  //     fullPage: true,
-  //     type: 'jpeg',
-  //     quality: 100,
-  //   })
+  await browser.close().catch((err) => {
+    console.log('error closing browser')
+    console.log(err)
+  })
 
-  await browser.close()
-
-  // res.pipe()
   res.setHeader('Content-Type', 'application/pdf')
 
-  //   res.setHeader(
-  //     'Content-Disposition',
-  //     'attachment;filename=JaneoMiguelTiongsonCV.pdf'
-  //   )
-
   res.send(!errorInFirstWriting ? readFileSync(path) : pdf)
-  //   res.pipe(pdf)
 }
 
-async function autoScroll(page) {
-  await page.evaluate(async () => {
-    await new Promise((resolve, reject) => {
-      var totalHeight = 0
-      var distance = 100
-      var timer = setInterval(() => {
-        var scrollHeight = document.body.scrollHeight
-        window.scrollBy(0, distance)
-        totalHeight += distance
+// async function autoScroll(page) {
+//   await page.evaluate(async () => {
+//     await new Promise((resolve, reject) => {
+//       var totalHeight = 0
+//       var distance = 100
+//       var timer = setInterval(() => {
+//         var scrollHeight = document.body.scrollHeight
+//         window.scrollBy(0, distance)
+//         totalHeight += distance
 
-        if (totalHeight >= scrollHeight - window.innerHeight) {
-          clearInterval(timer)
-          resolve(null)
-        }
-      }, 200)
-    })
-  })
-}
+//         if (totalHeight >= scrollHeight - window.innerHeight) {
+//           clearInterval(timer)
+//           resolve(null)
+//         }
+//       }, 200)
+//     })
+//   })
+// }

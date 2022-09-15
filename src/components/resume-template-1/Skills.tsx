@@ -1,10 +1,10 @@
-import { Box, BoxProps, SxProps, Typography } from "@mui/material";
-import { Theme } from "@mui/material/styles";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Box, BoxProps, SxProps, Typography } from '@mui/material'
+import { Theme } from '@mui/material/styles'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   RefinedSkills,
   Skills as TypeSkills,
-} from "../../graphql/resolvers/skill";
+} from '../../graphql/resolvers/skill'
 
 export default function Skills({
   sx,
@@ -12,10 +12,10 @@ export default function Skills({
   ...props
 }: { skills: TypeSkills | RefinedSkills; sx?: SxProps<Theme> } & Omit<
   BoxProps,
-  "sx"
+  'sx'
 >) {
-  const containerRef = useRef<HTMLDivElement | undefined>();
-  const lastRef = useRef<HTMLDivElement | undefined>();
+  const containerRef = useRef<HTMLDivElement | undefined>()
+  const lastRef = useRef<HTMLDivElement | undefined>()
 
   return (
     <Box
@@ -32,17 +32,18 @@ export default function Skills({
       {Object.entries(reduceSkills(skills)).map(([title, skills]) => (
         <Box key={title} className="skills-container" ref={lastRef}>
           <Typography className="skill-title" variant="body1">
-            {title.split("_").join(" ")}
+            {title.split('_').join(' ')}
           </Typography>
-          {skills?.map((skill) => (
-            <Typography variant="body2" key={skill} className="skill commad">
+          {skills?.map((skill, index, array) => (
+            <Typography variant="body2" key={skill} className="skill">
               {skill}
+              {index === array.length - 1 ? '' : ','}
             </Typography>
           ))}
         </Box>
       ))}
     </Box>
-  );
+  )
 }
 
 function reduceSkills(skills: TypeSkills | RefinedSkills) {
@@ -50,8 +51,8 @@ function reduceSkills(skills: TypeSkills | RefinedSkills) {
   if (
     Object.keys(skills).filter((ea) => !/A-Z/.test(ea.charAt(0))).length > 0
   ) {
-    console.log("found");
-    return skills as RefinedSkills;
+    console.log('found')
+    return skills as RefinedSkills
     // const {
     //   Backend_Libraries,
     //   Databases,
@@ -89,7 +90,7 @@ function reduceSkills(skills: TypeSkills | RefinedSkills) {
       tools,
       uiLibraries,
       webServer,
-    } = skills as TypeSkills;
+    } = skills as TypeSkills
 
     return {
       Technologies: languages,
@@ -106,6 +107,6 @@ function reduceSkills(skills: TypeSkills | RefinedSkills) {
       Tools: tools,
       UI_Libraries: uiLibraries,
       Web_Server: webServer,
-    };
+    }
   }
 }

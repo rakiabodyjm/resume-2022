@@ -1,18 +1,17 @@
-import { ApolloServer } from "apollo-server-micro";
-import { NextApiRequest, NextApiResponse } from "next";
-import resolvers from "src/graphql/resolvers";
-import { typeDefs } from "src/graphql/schema";
+import { ApolloServer } from 'apollo-server-micro'
+import { NextApiRequest, NextApiResponse } from 'next'
+import resolvers from 'src/graphql/resolvers'
+import { typeDefs } from 'src/graphql/schema'
 // import Cors from "micro-cors";
-import Cors from "cors";
+import Cors from 'cors'
 
-const cors = Cors();
+const cors = Cors()
 
 const apolloServer = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
-});
-
-const startServer = apolloServer.start();
+})
+const startServer = apolloServer.start()
 
 // export default cors(async function handler(req, res) {
 //   await startServer;
@@ -26,22 +25,23 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    await startServer;
+    await startServer
     const handler = apolloServer.createHandler({
-      path: "/api/graphql",
-    });
+      path: '/api/graphql',
+    })
     cors(req, res, (result: any) => {
       if (result instanceof Error) {
         // throw result;
-        res.status(500).send(result);
+        res.status(500).send(result)
       }
-      if (req.method === "OPTIONS") {
-        res.status(200).send("ok");
+      if (req.method === 'OPTIONS') {
+        res.status(200).send('ok')
       }
-    });
-    handler(req, res);
+    })
+    handler(req, res)
   } catch (err) {
-    res.status(500).send(err);
+    console.log(err)
+    res.status(500).send(err)
   }
 }
 
@@ -50,4 +50,4 @@ export const config = {
     bodyParser: false,
     externalResolver: true,
   },
-};
+}

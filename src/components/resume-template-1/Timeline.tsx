@@ -56,9 +56,10 @@ export default function Timeline({
                     Technologies:
                   </Typography>
 
-                  {technologies.map((tech) => (
-                    <Typography className="technology commad" key={tech}>
+                  {technologies.map((tech, index, array) => (
+                    <Typography className="technology" key={tech}>
                       {tech}
+                      {index === array.length - 1 ? '' : ','}
                     </Typography>
                   ))}
                 </Box>

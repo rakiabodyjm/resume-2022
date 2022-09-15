@@ -1,5 +1,3 @@
-// import Header from "src/components/Header";
-
 import { gql, useQuery } from '@apollo/client'
 import { CircularProgress, Grid, SxProps } from '@mui/material'
 import Header from 'src/components/resume-template-1/Header'
@@ -112,9 +110,6 @@ type GetResumeQuery = {
   degrees: DegreesType[]
 }
 
-// const headerBackground = blue["50"];
-
-// const subHeaderBackground = blue["200"];
 const styling: { [key: string]: SxProps<Theme> } = {
   header: {
     display: 'flex',
@@ -227,15 +222,6 @@ const styling: { [key: string]: SxProps<Theme> } = {
         mb: -1,
       },
 
-      // ":after": {
-      //   position: "absolute",
-      //   content: '""',
-      //   left: 0,
-      //   top: 2,
-      //   bottom: 2,
-      //   width: 2,
-      //   background: "red",
-      // },
       '.position': {
         fontWeight: 700,
         fontSize: (theme) => theme.typography.h6.fontSize,
@@ -276,7 +262,6 @@ const styling: { [key: string]: SxProps<Theme> } = {
             display: 'inline',
             fontWeight: 700,
             fontSize: 'inherit',
-            // mr: 1,
           },
           '.technology': {
             display: 'inline',
@@ -317,9 +302,6 @@ const styling: { [key: string]: SxProps<Theme> } = {
       },
 
       '.technology': {
-        // wordWrap: 'break-word',
-        // mr: 1,
-        // display: 'inline',
         mr: 1,
         fontSize: (theme) => `${theme.typography.caption.fontSize} !important`,
       },
@@ -356,10 +338,7 @@ const styling: { [key: string]: SxProps<Theme> } = {
       display: 'block',
       position: 'relative',
       width: '100%',
-      // height: 'auto',
-      // height: (theme) => theme.spacing(24),
 
-      // padding: '147% 0 0 0',
       height: 146,
     },
   },
@@ -423,65 +402,38 @@ const styling: { [key: string]: SxProps<Theme> } = {
   },
   __global: {
     '.skills-container .skill-title': {
-      // background: 'red',
-      // color: 'red',
       color: 'transparent',
       background: (theme) => theme.palette.secondary.gradient,
       backgroundClip: 'text',
     },
-    // '.skills-container .skill-title:after': {
-    //   // color: 'red',
-    //   color: 'transparent',
-    //   background: (theme) => theme.palette.secondary.gradient,
-    //   backgroundClip: 'text',
-    // },
-
-    '.personal-project-container .title': {
-      // color: 'red',
-      color: 'transparent',
-      background: (theme) => theme.palette.secondary.gradient,
-      backgroundClip: 'text',
-    },
-
-    '.timeline-entry-container .position': {
-      // color: 'red',
-      color: 'transparent',
-      background: (theme) => theme.palette.secondary.gradient,
-      backgroundClip: 'text',
-    },
-
-    '.certificate-container .title': {
-      color: 'transparent',
-      background: (theme) => theme.palette.secondary.gradient,
-      backgroundClip: 'text',
-    },
-
-    '.degree-container .university': {
-      color: 'transparent',
-      background: (theme) => theme.palette.secondary.gradient,
-      backgroundClip: 'text',
-    },
+    ...[
+      '.personal-project-container .title',
+      '.timeline-entry-container .position',
+      '.certificate-container .title',
+      '.degree-container .university',
+    ].reduce(
+      (gradientedClasses, selector) => ({
+        ...gradientedClasses,
+        [selector]: {
+          color: 'transparent',
+          background: (theme) => theme.palette.secondary.gradient,
+          backgroundClip: 'text',
+          display: 'inline-flex',
+        },
+      }),
+      {}
+    ),
 
     '.bordered': {
       p: 2,
       position: 'relative',
       borderRadius: 0.5,
-      // border: (theme) => `4px solid ${theme.palette.secondary.main}`,
       borderWidth: 2,
       borderStyle: 'solid',
-      // borderColor: (theme) => theme.palette.secondary.light,
       borderColor: '#8aacc890',
-      // borderColor: 'transparent',
 
       '> .section-caption': {
-        // color: (theme) =>
-        //   theme.palette.mode === 'dark'
-        //     ? 'currentColor'
-        //     : theme.palette.secondary.main,
-        // color: (theme) => theme.palette.primary.dark,
         color: (theme) => theme.palette.secondary.light,
-        // textShadow: (theme) =>
-        // `2px 2px 2px ${theme.palette.secondary.main + '70'}`,
         fontSize: (theme) => theme.typography.h5.fontSize,
         fontWeight: 600,
         position: 'absolute',
@@ -493,14 +445,12 @@ const styling: { [key: string]: SxProps<Theme> } = {
         ':after': {
           content: "''",
           position: 'absolute',
-          // height: (theme) => '2rem',
           zIndex: -1,
           top: '40%',
           left: '-0.2rem',
           right: '-0.2rem',
 
           background: (theme) => theme.palette.background.default,
-          // background: 'red',
           height: '0.5rem',
           borderRadius: '4px',
           opacity: 1,
@@ -525,7 +475,8 @@ const styling: { [key: string]: SxProps<Theme> } = {
       ':not(:last-child):after': {
         position: 'absolute',
         content: '","',
-        // right: -3,
+        bottom: 0,
+        right: -2,
       },
     },
     '.stacked': {
@@ -535,7 +486,6 @@ const styling: { [key: string]: SxProps<Theme> } = {
       justifyContent: 'space-between',
     },
     '.sub-bordered': {
-      // borderColor: (theme) => theme.palette.secondary.light,
       borderColor: '#8aacc8',
       borderWidth: 2,
       borderStyle: 'dashed',
@@ -552,7 +502,6 @@ export default function ResumeTemplate1() {
     },
   })
 
-  console.log(data)
   if (!data || loading) {
     return (
       <CircularProgress
@@ -578,7 +527,7 @@ export default function ResumeTemplate1() {
         />
       </Grid>
 
-      <Grid className="stacked" item xs={12} md={3}>
+      <Grid className="stacked" item xs={3}>
         <Skills skills={data.skillsv2} sx={styling.skills} />
 
         <PersonalTimeline
@@ -589,7 +538,7 @@ export default function ResumeTemplate1() {
         <Tickets sx={styling.tickets} tickets={data.tickets} />
         <Degrees sx={styling.degrees} degrees={data.degrees} />
       </Grid>
-      <Grid className="stacked" item xs={12} md={9}>
+      <Grid className="stacked" item xs={9}>
         <Timeline sx={styling.timelines} timeLines={data.timelines} />
         <Certificates
           sx={styling.certificates}

@@ -90,7 +90,7 @@ const timelineEntries: TimelineEntry[] = [
         ],
         summarizedResponsibilities: [
           "Spearheaded the update of of coding patterns, ECMAScript syntaxes and React.js' API for optimizations, better code readability and to accommodate compatibility with new third party external libraries ",
-          'Responsible for development and optimizations of UI Components ensuring interoperability, performance and ease of use for handling more than 10 form component instances',
+          'Responsible for development and optimizations of UI Components ensuring interoperability, performance and ease of use for handling more than 10 simultaneous form component instances',
         ],
         technologies: [
           'JavaScript',
@@ -104,6 +104,8 @@ const timelineEntries: TimelineEntry[] = [
           'MariaDB',
           'Eloquent',
           'Webpack',
+          'Git',
+          'GitLab',
         ],
       },
     ],
@@ -244,7 +246,7 @@ const timelineEntries: TimelineEntry[] = [
           'Mongoose',
           'Stripe',
           'PayPal',
-          'GSAP3',
+          'GSAP 3',
           'Git',
           'Adobe XD',
           'Vercel',
@@ -297,7 +299,7 @@ const timelineEntries: TimelineEntry[] = [
   {
     company: 'REALM1000 Enterprise, Dagupan City, PH',
     position: 'Lead Software Engineer',
-    date: 'August 2020 - July 2022',
+    date: 'November 2021 - July 2022',
     projects: [
       {
         name: 'Project Alpha',
@@ -322,13 +324,18 @@ const timelineEntries: TimelineEntry[] = [
           'Responsible for systems architecture, operating systems environments and containers, and network infrastructure. ',
           'Responsible for semantic versioning of software with development, staging and production deployments.',
           'Created containerized environments for development, staging and production. ',
+          'Created prototypes for MicroService implementations utilizing NestJS toolings with Socket.IO and Redis Pub/Sub.',
         ],
         summarizedResponsibilities: [
           'Responsible for overall Software Architecture and Development including Database Management, Backend and Frontend Engineering, Development Operations and UI/UX Research and Design',
           // "Responsible for providing training and project management implementing Agile Methodology kanban on a team of 5 developers",
           'Trained and mentored 5 Software Developers in frontend and backend development implementing Agile Kanban project management',
-          'Simplified and created libraries for REST API, Database Queries, State Management and Message Brokers for maintaining code quality and consistency',
+          // 'Simplified and created boilerplates for Frontend and Backend Development, and Libraries for REST API, Database Queries, and State Management',
+          'Created boilerplates for Frontend and Backend Development, and simplified libraries for REST API, Database Queries, State Management, Caching and other utility functions for Developer Experience, code quality and efficiency',
+
           'Created implementations in Azure, Docker and self hosted operating system environments for deployment and development operations generating cost-benefit analysis, performance reviews and IT Infrastructure requirements',
+
+          'Created prototype implementations of MicroService Architecture utilizing NestJS tooling with Socket.IO and Redis Pub/Sub',
         ],
         technologies: [
           'TypeScript',
@@ -458,7 +465,7 @@ const timelineEntries: TimelineEntry[] = [
           'Created controls, processes and automation for extracting encrypted movie files from Optical Disk drive',
         ],
         summarizedResponsibilities: [
-          'Created Nodejs libraries and documentations to achieve pre-generated or  on-the-fly transmuxing, transcoding and streaming of movies from encrypted source into 1080p, 720p and 480p Adaptive HTTP Live Streaming FORMAT',
+          'Created Nodejs libraries and documentations to achieve pre-generated or  on-the-fly transmuxing, transcoding and streaming of movies from encrypted source into 1080p, 720p and 480p Adaptive HTTP Live Streaming format',
           'Integrated with external software through built-in Nodejs libraries to generate desired format of output files',
           'Created a database and file server for classifying and effectively storing movie libraries',
         ],

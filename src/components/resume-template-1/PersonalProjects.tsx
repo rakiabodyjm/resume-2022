@@ -17,9 +17,10 @@ export default function PersonalProjects({
 
           <Typography className="technology-title">Technologies: </Typography>
           <Box className="tech-container">
-            {technologies.map((tech) => (
-              <Typography key={tech} className="technology commad">
+            {technologies.map((tech, index, array) => (
+              <Typography key={tech} className="technology">
                 {tech}
+                {index === array.length - 1 ? '' : ','}
               </Typography>
             ))}
           </Box>

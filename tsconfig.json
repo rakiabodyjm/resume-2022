@@ -25,6 +25,13 @@
     "strictPropertyInitialization": false,
     "noImplicitAny": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src", "**/*.gql"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src",
+    "**/*.gql",
+    "auto-commit.js"
+  ],
   "exclude": ["node_modules"]
 }

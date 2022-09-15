@@ -27,7 +27,7 @@ const personalInformation: PersonalInformation = {
   summary: [
     'Passionate, meticulous and process-driven Software Engineer with 5 years of progressive experience in modern web and server technologies across diverse industries.',
     'Equipped with backgrounds in System Administration, Frontend and Backend Engineering, Database Management and Design, Software Architecture, Development Operations and Project Management.',
-    'Quickly learns, masters and introduces new innovations and technologies to provide better solutions to technical challenges.',
+    'Quickly learns, masters and introduces new innovations and technologies to provide better solutions to technical challenges and business logic.',
     'Engages in development communities and provides insights, mentoring and training to others.',
   ],
   // hobbies: ["Coding", "Drone Pilot"],
