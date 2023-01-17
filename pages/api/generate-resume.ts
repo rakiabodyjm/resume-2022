@@ -19,10 +19,7 @@ export default async function handler(
     height: 796,
   })
 
-  await page.goto(
-    (process.env.NODE_ENV === 'development' ? 'http://' : 'https://') +
-      req.headers.host +
-      '/resume2',
+  await page.goto("https://janeo.dev/resume2",
     {
       waitUntil: 'networkidle0',
     }
